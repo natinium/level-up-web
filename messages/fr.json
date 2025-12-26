@@ -1,0 +1,14 @@
+{
+  "HomePage": {
+    "title": "Bienvenue dans le starter Orion Next.js",
+    "description": "Votre template starter prêt pour la production avec toutes les fonctionnalités essentielles pré-configurées. Commencez rapidement avec les dernières versions de Next.js 16, TypeScript, Tailwind CSS, et plus encore.",
+    "deployButton": "Déployer maintenant",
+    "documentationButton": "Documentation"
+  },
+  "LanguageSwitcher": {
+    "label": "Langue"
+  },
+  "ThemeToggle": {
+    "label": "Changer de thème"
+  }
+}
