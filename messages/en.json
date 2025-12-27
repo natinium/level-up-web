@@ -1,14 +1,8 @@
 {
   "HomePage": {
-    "title": "Welcome to Orion Next.js Starter",
-    "description": "Your production-ready starter template with all essential features pre-configured. Get started quickly with the latest Next.js 16, TypeScript, Tailwind CSS, and more.",
-    "deployButton": "Deploy Now",
-    "documentationButton": "Documentation"
-  },
-  "LanguageSwitcher": {
-    "label": "Language"
-  },
-  "ThemeToggle": {
-    "label": "Toggle theme"
+    "title": "LevelUP - Gamified Learning",
+    "description": "Master your subjects with interactive quizzes, AI explanations, and progress tracking.",
+    "deployButton": "Get Started",
+    "documentationButton": "Learn More"
   }
 }

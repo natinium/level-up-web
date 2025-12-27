@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
-// Initialize the next-intl plugin for internationalization support.
 const withNextIntl = createNextIntlPlugin();
 
 /**
@@ -22,5 +21,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-// Wrap the Next.js configuration with the next-intl plugin to enable i18n routing and features.
 export default withNextIntl(nextConfig);

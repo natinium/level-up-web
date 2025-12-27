@@ -55,7 +55,7 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <div
       className={cn(
-        "pb-12 h-screen flex flex-col justify-between bg-white border-r border-gray-100",
+        "pb-12 h-screen flex flex-col justify-between bg-white dark:bg-black border-r border-gray-100 dark:border-gray-800",
         className,
       )}
     >
@@ -64,7 +64,7 @@ export function Sidebar({ className }: SidebarProps) {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-xl font-bold text-white shadow-lg shadow-primary/20">
             E
           </div>
-          <h2 className="text-xl font-extrabold tracking-tight text-gray-900">
+          <h2 className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             EthioScholar
           </h2>
         </div>
@@ -78,9 +78,9 @@ export function Sidebar({ className }: SidebarProps) {
                   <Button
                     variant="ghost"
                     className={cn(
-                      "w-full justify-start gap-3 rounded-2xl px-4 py-6 font-medium transition-all hover:bg-gray-50",
+                      "w-full justify-start gap-3 rounded-2xl px-4 py-6 font-medium transition-all hover:bg-gray-50 dark:hover:bg-gray-900/50",
                       isActive &&
-                        "bg-primary text-white shadow-md shadow-primary/20 hover:bg-primary/90 hover:text-white",
+                        "bg-primary text-white shadow-md shadow-primary/20 hover:bg-primary/90 hover:text-white dark:bg-primary dark:text-white",
                     )}
                   >
                     <item.icon
@@ -100,7 +100,7 @@ export function Sidebar({ className }: SidebarProps) {
 
       <div className="px-3 py-4 space-y-4">
         {/* Daily Streak Widget */}
-        <div className="mx-3 rounded-3xl bg-orange-50 p-4 border border-orange-100">
+        <div className="mx-3 rounded-3xl bg-orange-50 dark:bg-orange-950/20 p-4 border border-orange-100 dark:border-orange-900/40">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-orange-100 rounded-full text-orange-500">
               <Flame className="h-5 w-5 fill-orange-500" />
@@ -109,7 +109,9 @@ export function Sidebar({ className }: SidebarProps) {
               <p className="text-xs font-bold text-orange-400 uppercase tracking-wider">
                 Daily Streak
               </p>
-              <p className="text-lg font-black text-gray-900">12 Days</p>
+              <p className="text-lg font-black text-gray-900 dark:text-white">
+                12 Days
+              </p>
             </div>
           </div>
           <p className="text-xs text-gray-500 leading-relaxed">
@@ -119,7 +121,7 @@ export function Sidebar({ className }: SidebarProps) {
 
         <Button
           variant="ghost"
-          className="w-full justify-start gap-3 text-red-500 hover:text-red-600 hover:bg-red-50 rounded-2xl px-6 py-6"
+          className="w-full justify-start gap-3 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-2xl px-6 py-6"
           onClick={handleSignOut}
         >
           <LogOut className="h-5 w-5" />

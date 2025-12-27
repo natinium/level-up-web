@@ -17,7 +17,7 @@ export default async function MainLayout({
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50/50">
+    <div className="flex min-h-screen bg-gray-50/50 dark:bg-black">
       <aside className="hidden md:block w-72 fixed h-full z-30">
         <Sidebar className="h-full" />
       </aside>

@@ -8,6 +8,7 @@ import { getGrades, getSubjects } from "@/lib/api";
 import { Grade, Subject } from "@/types/content";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Search, Bell, Filter } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Input } from "@/components/ui/input";
 
 export default function DashboardPage() {
@@ -72,16 +73,30 @@ export default function DashboardPage() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
             <Input
               placeholder="Search subjects, topics..."
-              className="pl-10 rounded-xl bg-white border-gray-200 focus-visible:ring-primary"
+              className="pl-10 rounded-xl bg-white border-gray-200 focus-visible:ring-primary dark:bg-zinc-900/50 dark:border-zinc-800 dark:text-gray-50"
             />
           </div>
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-xl border-gray-200 bg-white shadow-sm"
-          >
-            <Bell className="h-4 w-4 text-gray-600" />
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button
+              variant="outline"
+              size="icon"
+              className="relative rounded-xl border-gray-200 bg-white shadow-sm dark:bg-zinc-900/50 dark:border-zinc-800"
+            >
+              <Bell className="h-5 w-5 text-gray-400" />
+              <span className="absolute top-2.5 right-2.5 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-black"></span>
+            </Button>
+            <ThemeToggle />
+          </div>
+          {/* Filter Button - Mobile */}
+          <div className="md:hidden">
+            <Button
+              size="icon"
+              variant="outline"
+              className="rounded-2xl dark:bg-zinc-900/50 dark:border-zinc-800"
+            >
+              <Filter className="h-5 w-5 text-gray-400" />
+            </Button>
+          </div>
         </div>
       </div>
 

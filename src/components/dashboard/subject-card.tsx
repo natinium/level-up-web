@@ -36,7 +36,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
     <motion.div
       whileHover={{ y: -5 }}
       whileTap={{ scale: 0.98 }}
-      className="group relative overflow-hidden rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 transition-all hover:shadow-xl hover:shadow-indigo-900/5 cursor-pointer"
+      className="group relative overflow-hidden rounded-3xl bg-white dark:bg-zinc-900/50 p-6 shadow-sm ring-1 ring-gray-100 dark:ring-zinc-800 transition-all hover:shadow-xl hover:shadow-indigo-900/5 cursor-pointer"
     >
       <Link href={`/subjects/${subject.id}`} className="absolute inset-0 z-10">
         <span className="sr-only">View {subject.name}</span>
@@ -57,7 +57,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
       </div>
 
       <div>
-        <h3 className="mb-2 text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+        <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
           {subject.name}
         </h3>
         <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
@@ -68,12 +68,12 @@ export function SubjectCard({ subject }: SubjectCardProps) {
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="h-1.5 flex-1 rounded-full bg-gray-100 overflow-hidden mr-4">
+          <div className="h-1.5 flex-1 rounded-full bg-gray-100 dark:bg-zinc-800 overflow-hidden mr-4">
             <div
               className={cn("h-full w-[45%] rounded-full", subject.color)}
             ></div>
           </div>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-100 bg-white text-gray-400 transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-100 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-gray-400 transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-white">
             <MoveRight className="h-4 w-4" />
           </div>
         </div>
