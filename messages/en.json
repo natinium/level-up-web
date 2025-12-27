@@ -1,8 +1,53 @@
 {
-  "HomePage": {
-    "title": "LevelUP - Gamified Learning",
-    "description": "Master your subjects with interactive quizzes, AI explanations, and progress tracking.",
-    "deployButton": "Get Started",
-    "documentationButton": "Learn More"
+  "Common": {
+    "appName": "LevelUP",
+    "searchPlaceholder": "Search subjects, topics...",
+    "viewAll": "View All",
+    "guestUser": "Guest User"
+  },
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "library": "My Library",
+    "wallet": "XP Wallet",
+    "statistics": "Statistics",
+    "leaderboard": "Leaderboard",
+    "dailyStreak": "Daily Streak",
+    "streakMessage": "You're on fire! 🔥 Keep learning to maintain your streak.",
+    "logOut": "Log Out"
+  },
+  "Header": {
+    "greeting": "Hello, {name} 👋",
+    "subtitle": "Ready to crush the Entrance Exam?"
+  },
+  "Dashboard": {
+    "learningActivity": "Learning Activity",
+    "thisWeek": "This Week",
+    "lastWeek": "Last Week",
+    "yourSubjects": "Your Subjects",
+    "chooseSubject": "Choose Your Subject",
+    "grade": "Grade {grade}",
+    "noSubjects": "No subjects found for this grade."
+  },
+  "Stats": {
+    "yourProgress": "Your Progress",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "xpEarned": "XP Earned",
+    "accuracy": "Accuracy",
+    "topStudents": "Top {percent}% of students",
+    "fromLastWeek": "{change}% from last week",
+    "level": "Level {level}",
+    "masterStudent": "Master Student"
+  },
+  "Leaderboard": {
+    "topStudents": "Top Students",
+    "viewFull": "View Full Leaderboard",
+    "scholarLevel": "Level {level} Scholar"
+  },
+  "Hero": {
+    "termFinals": "Term 1 Finals",
+    "title": "National Exam Sprint 2025",
+    "description": "Join 15,000 students in the ultimate Biology & Civics marathon. Unlock the 'Scholar' skin!",
+    "startSprint": "Start Sprint"
   }
 }

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import {
   LayoutGrid,
   Library,
@@ -23,18 +24,20 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const t = useTranslations("Sidebar");
+  const tCommon = useTranslations("Common");
 
   const menuItems = [
     {
       id: "dashboard",
-      label: "Dashboard",
+      label: t("dashboard"),
       icon: LayoutGrid,
       href: "/dashboard",
     },
-    { id: "library", label: "My Library", icon: Library, href: "/library" },
-    { id: "wallet", label: "XP Wallet", icon: Wallet, href: "/wallet" },
-    { id: "stats", label: "Statistics", icon: BarChart2, href: "/stats" },
-    { id: "leaderboard", label: "Leaderboard", icon: Users, href: "/teams" },
+    { id: "library", label: t("library"), icon: Library, href: "/library" },
+    { id: "wallet", label: t("wallet"), icon: Wallet, href: "/wallet" },
+    { id: "stats", label: t("statistics"), icon: BarChart2, href: "/stats" },
+    { id: "leaderboard", label: t("leaderboard"), icon: Users, href: "/teams" },
   ];
 
   const handleSignOut = async () => {
@@ -55,17 +58,17 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <div
       className={cn(
-        "pb-12 h-screen flex flex-col justify-between bg-white dark:bg-black border-r border-gray-100 dark:border-gray-800",
+        "pb-8 h-screen flex flex-col justify-between bg-white dark:bg-black border-r border-gray-100 dark:border-gray-800 w-64",
         className,
       )}
     >
       <div className="space-y-4 py-4">
         <div className="px-6 py-2 flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-xl font-bold text-white shadow-lg shadow-primary/20">
-            E
+            L
           </div>
           <h2 className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            EthioScholar
+            {tCommon("appName")}
           </h2>
         </div>
         <div className="px-3 py-2">
@@ -78,7 +81,7 @@ export function Sidebar({ className }: SidebarProps) {
                   <Button
                     variant="ghost"
                     className={cn(
-                      "w-full justify-start gap-3 rounded-2xl px-4 py-6 font-medium transition-all hover:bg-gray-50 dark:hover:bg-gray-900/50",
+                      "w-full justify-start gap-3 rounded-2xl px-4 py-4 font-bold transition-all hover:bg-gray-50 dark:hover:bg-gray-900/50 cursor-pointer",
                       isActive &&
                         "bg-primary text-white shadow-md shadow-primary/20 hover:bg-primary/90 hover:text-white dark:bg-primary dark:text-white",
                     )}
@@ -107,7 +110,7 @@ export function Sidebar({ className }: SidebarProps) {
             </div>
             <div>
               <p className="text-xs font-bold text-orange-400 uppercase tracking-wider">
-                Daily Streak
+                {t("dailyStreak")}
               </p>
               <p className="text-lg font-black text-gray-900 dark:text-white">
                 12 Days
@@ -115,7 +118,7 @@ export function Sidebar({ className }: SidebarProps) {
             </div>
           </div>
           <p className="text-xs text-gray-500 leading-relaxed">
-            You&apos;re on fire! 🔥 Keep learning to maintain your streak.
+            {t("streakMessage")}
           </p>
         </div>
 
@@ -125,7 +128,7 @@ export function Sidebar({ className }: SidebarProps) {
           onClick={handleSignOut}
         >
           <LogOut className="h-5 w-5" />
-          Log Out
+          {t("logOut")}
         </Button>
       </div>
     </div>

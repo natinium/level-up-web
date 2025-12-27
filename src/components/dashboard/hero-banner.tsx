@@ -2,7 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 
+import { useTranslations } from "next-intl";
+
 export function HeroBanner() {
+  const t = useTranslations("Hero");
+
   return (
     <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 p-8 md:p-12 shadow-xl shadow-blue-900/10">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
@@ -16,19 +20,21 @@ export function HeroBanner() {
             New Feature: AI Tutor Available!
           </div>
           <h1 className="mb-4 text-3xl font-extrabold text-white md:text-5xl tracking-tight leading-tight">
-            Ready to Ace Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-yellow-300">
-              Entrance Exams?
-            </span>
+            {t.rich("title", {
+              br: () => <br />,
+              span: (chunks) => (
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-yellow-300">
+                  {chunks}
+                </span>
+              ),
+            })}
           </h1>
           <p className="mb-8 text-lg text-blue-100 max-w-xl">
-            Join thousands of students mastering their subjects with LevelUP.
-            Personalized quizzes, detailed analytics, and AI-powered
-            explanations.
+            {t("description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button className="bg-white text-primary hover:bg-white/90 font-bold px-8 py-6 rounded-2xl shadow-lg shadow-blue-900/20 text-lg transition-transform hover:scale-105 active:scale-95">
-              Start Practicing
+              {t("startSprint")}
             </Button>
             <Button
               variant="outline"

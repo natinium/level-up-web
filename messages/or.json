@@ -1,8 +1,53 @@
 {
-  "HomePage": {
-    "title": "LevelUP - Gamified Learning",
-    "description": "Barnoota keessan gaaffilee wal-cincaalaa, ibsa AI, fi hordoffii guddinaatiin tohadhaa.",
-    "deployButton": "Jalkabi",
-    "documentationButton": "Dabalata Baradhu"
+  "Common": {
+    "appName": "LevelUP",
+    "searchPlaceholder": "Mata duree barbaadi...",
+    "viewAll": "Hunda Ilaali",
+    "guestUser": "Keessummaa"
+  },
+  "Sidebar": {
+    "dashboard": "Daashboordii",
+    "library": "Mana Kitaabaa",
+    "wallet": "Boorsaa XP",
+    "statistics": "Istaatistiksii",
+    "leaderboard": "Sadarkaa",
+    "dailyStreak": "Guyyoota Walitti Aanan",
+    "streakMessage": "Baay'ee gaarii! 🔥 Qo'annoo kee itti fufi.",
+    "logOut": "Ba'i"
+  },
+  "Header": {
+    "greeting": "Akkam, {name} 👋",
+    "subtitle": "Qormaataaf qophooftaniittu?"
+  },
+  "Dashboard": {
+    "learningActivity": "Sochii Baruu",
+    "thisWeek": "Torban Kana",
+    "lastWeek": "Torban Darbe",
+    "yourSubjects": "Gosa Barnootaa",
+    "chooseSubject": "Gosa Barnootaa Filadhu",
+    "grade": "Kutaa {grade}",
+    "noSubjects": "Gosti barnootaa kutaa kanaaf hin argamne"
+  },
+  "Stats": {
+    "yourProgress": "Guddina Kee",
+    "weekly": "Torban",
+    "monthly": "Ji'a",
+    "xpEarned": "XP Argame",
+    "accuracy": "Sirrummaa",
+    "topStudents": "Barattoota {percent}% keessaa",
+    "fromLastWeek": "{change}% torban darbe irraa",
+    "level": "Sadarkaa {level}",
+    "masterStudent": "Barataa Ciminaa"
+  },
+  "Leaderboard": {
+    "topStudents": "Barattoota Cimaxoo",
+    "viewFull": "Sadarkaa Guutuu Ilaali",
+    "scholarLevel": "Sadarkaa {level}"
+  },
+  "Hero": {
+    "termFinals": "Qormaata Semisteera 1ffaa",
+    "title": "Qormaata Biyyaalessaa 2025",
+    "description": "Barattoota 15,000 ol ta'an waliin hirmaadhu. Maraatoonii Baayoloojii fi Siiviiksii!",
+    "startSprint": "Jalqabi"
   }
 }
