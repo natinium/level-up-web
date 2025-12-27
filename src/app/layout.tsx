@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
-import { Providers } from "@/providers";
-import { getMessages, getLocale, getTimeZone } from "next-intl/server";
+import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 
 const geistSans = Geist({
@@ -58,21 +57,20 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
-  const locale = await getLocale();
-  const timeZone = await getTimeZone();
-
   return (
-    <html lang={locale}>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers messages={messages} locale={locale} timeZone={timeZone}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
           <Toaster />
-        </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );
