@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { Providers } from "@/providers";
 import { getMessages, getLocale, getTimeZone } from "next-intl/server";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,6 +71,7 @@ export default async function RootLayout({
       >
         <Providers messages={messages} locale={locale} timeZone={timeZone}>
           {children}
+          <Toaster />
         </Providers>
       </body>
     </html>

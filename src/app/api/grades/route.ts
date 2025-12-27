@@ -5,9 +5,7 @@ import { asc } from "drizzle-orm";
 
 export async function GET() {
   try {
-    const data = await db.query.grades.findMany({
-      orderBy: [asc(grades.name)],
-    });
+    const data = await db.select().from(grades).orderBy(asc(grades.name));
     return NextResponse.json(data);
   } catch (error) {
     console.error(error);

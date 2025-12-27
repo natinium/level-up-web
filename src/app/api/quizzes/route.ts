@@ -15,9 +15,10 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const data = await db.query.quizzes.findMany({
-      where: eq(quizzes.subjectId, subjectId),
-    });
+    const data = await db
+      .select()
+      .from(quizzes)
+      .where(eq(quizzes.subjectId, subjectId));
 
     return NextResponse.json(data);
   } catch (error) {
