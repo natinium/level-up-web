@@ -23,7 +23,7 @@ export function QuestionCard({
   // Assuming schema defines options as JSON. valid types needed.
   // In seed.ts options were string[].
   const options = Array.isArray(question.options) ? question.options : [];
-  const correctIndex = question.correctAnswer;
+  const correctIndex = question.correctIndex;
 
   return (
     <div className="h-full w-full snap-start snap-always flex flex-col justify-center items-center p-6 relative">

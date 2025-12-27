@@ -84,7 +84,6 @@ export function QuizGame({ quiz }: QuizGameProps) {
         {questions.map((q, index) => {
           const isAnswered = answers[index] !== undefined;
           const selected = answers[index];
-          const isCorrect = selected === q.correctAnswer;
 
           return (
             <div
@@ -96,7 +95,7 @@ export function QuizGame({ quiz }: QuizGameProps) {
                 index={index}
                 selectedOption={isAnswered ? selected : null}
                 onSelect={(optIdx) =>
-                  handleAnswer(index, optIdx, optIdx === q.correctAnswer)
+                  handleAnswer(index, optIdx, optIdx === q.correctIndex)
                 }
                 isAnswered={isAnswered}
               />
