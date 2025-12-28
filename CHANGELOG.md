@@ -1,3 +1,41 @@
+# 1.0.0 (2025-12-28)
+
+### Bug Fixes
+
+- **quiz:** enhance QuizGame mobile UX ([1b7b052](https://github.com/natinium/level-up-web/commit/1b7b05257ef62d12e4ac5103e0d710f7d5a42400))
+- **quiz:** fix correctIndex property name and lint errors ([70a19a9](https://github.com/natinium/level-up-web/commit/70a19a925b01fc0f1dfbd681aa581e971a01fb03))
+- **routing:** update proxy matcher for proper locale handling ([7e9269b](https://github.com/natinium/level-up-web/commit/7e9269b9daaec2bcbaaa05b4b8ff3708b4bc81a2))
+
+### Features
+
+- **ai:** add AI explanation API endpoint for quiz questions ([9b7e789](https://github.com/natinium/level-up-web/commit/9b7e789b43d6a69e53d72c7a2658873b5a236dc7))
+- **api:** add client api helpers, types, and endpoints ([0ae5a3d](https://github.com/natinium/level-up-web/commit/0ae5a3db8c881ca1c0eac3c373f0b449e9f12408))
+- **app:** rename app from EthioScholar to LevelUP ([b0ef04b](https://github.com/natinium/level-up-web/commit/b0ef04bd33a30c7c977bea5b58f3bbf9c6d7f5a8))
+- **auth:** setup better-auth server and client ([594a5bd](https://github.com/natinium/level-up-web/commit/594a5bdf75f8e65f0d16b17ae4b8b605e85b42b9))
+- **components:** update hero banner and subject card components ([eb8e976](https://github.com/natinium/level-up-web/commit/eb8e976fad65cb1b8ab39e45daacfb485ac667d6))
+- **dashboard:** add dashboard page with grade selector and data fetching ([99b9d2f](https://github.com/natinium/level-up-web/commit/99b9d2fd6d192c919576b43453438a1f5567d8a9))
+- **dashboard:** enhance dashboard UI with search, language switch, and theme toggle ([56b2cd5](https://github.com/natinium/level-up-web/commit/56b2cd5d02b55b568d4a471238482ea0b2d6e803))
+- **db:** setup drizzle orm with supabase postgres ([66c9ebf](https://github.com/natinium/level-up-web/commit/66c9ebf9e6a6e9365839453e9523126d3ed037cb))
+- **i18n:** add new translation keys for new features ([8681c95](https://github.com/natinium/level-up-web/commit/8681c95862ebdd5154ebf460566936d59cab4457))
+- **i18n:** add translations for English, Amharic, and Afan Oromo ([f793aa1](https://github.com/natinium/level-up-web/commit/f793aa1b716a56d0007af96f19e0bc36b5c828e4))
+- **layout:** update main layout by removing header and adjusting structure ([092de52](https://github.com/natinium/level-up-web/commit/092de5256f62a46967338893d43b24ccce179dbe))
+- **mobile:** implement tiktok-inspired mobile ui shell ([d1c01a1](https://github.com/natinium/level-up-web/commit/d1c01a1a4c827a9f50511481fa062bc993e4a80c))
+- **mobile:** integrate QuizGame into mobile feed ([af74412](https://github.com/natinium/level-up-web/commit/af744129d67484fc1e067fc65536c871e7bacc48))
+- **pages:** add library, wallet, stats, and teams pages ([7b059d1](https://github.com/natinium/level-up-web/commit/7b059d181c591b3efb08c6e6b1c4bf14f6643e15))
+- **pages:** add profile and settings pages ([fedc514](https://github.com/natinium/level-up-web/commit/fedc514c531e45e14b8687b09deee0a781dbb745))
+- **quiz:** enhance quiz card UI with dark mode support ([74faf1b](https://github.com/natinium/level-up-web/commit/74faf1b8b0863d6fdc3559b97f8cfb37b960a71a))
+- **quiz:** enhance quiz components with AI integration ([eb4904e](https://github.com/natinium/level-up-web/commit/eb4904ee910f1f057b151ab8bd142a565003d254))
+- **right-sidebar:** redesign right sidebar with stats and leaderboard ([d502fc9](https://github.com/natinium/level-up-web/commit/d502fc9cccd67f0e58208ffbbd1891656c1e8fa6))
+- **sidebar:** redesign sidebar with new navigation and styling ([d362465](https://github.com/natinium/level-up-web/commit/d362465c45c970387f13454f9e48b752fc5cf922))
+- **storage:** setup supabase storage client ([b913ea1](https://github.com/natinium/level-up-web/commit/b913ea1d77a41172ee7d9378b3b32d9039a5074e))
+- **store:** add quiz store with AI panel state management ([4f1ce76](https://github.com/natinium/level-up-web/commit/4f1ce76252bf35e003be280519a9d50bcd91915a))
+- **styles:** update global styles with new color scheme ([684f4ce](https://github.com/natinium/level-up-web/commit/684f4ce74dd777c7f40001181c6d502dc3279e4b))
+- **subject:** add subject and quiz pages with tiktok style interface ([ff8a5ae](https://github.com/natinium/level-up-web/commit/ff8a5aee2deebc54b6c04e0325ab663fcbff6b59))
+- **subjects:** improve subject page UI with dark mode support ([29cbed3](https://github.com/natinium/level-up-web/commit/29cbed35e6b42989effb7f3a4a96d493880c0dd5))
+- **ui:** add dashboard widgets and layout components ([9235ee7](https://github.com/natinium/level-up-web/commit/9235ee7a1a3dd7f6b6cd0523193ca9ad5f928ec8))
+- **ui:** add new UI components (badge, switch) ([cdb6837](https://github.com/natinium/level-up-web/commit/cdb6837eb2003770cb01a79bb234b45772bdedf6))
+- **ui:** add theme awareness support for dashboard ([be6230b](https://github.com/natinium/level-up-web/commit/be6230b5b3477e5fd937710e7ec17367f1f7bb3d))
+
 ## [1.2.1](https://github.com/orion-stack/orion-next-starter/compare/v1.2.0...v1.2.1) (2025-11-14)
 
 ### Bug Fixes
