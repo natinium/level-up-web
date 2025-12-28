@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { QuizWithQuestions } from "@/types/content";
 import { QuestionCard } from "./question-card";
 import { AIPanel } from "./ai-panel";
@@ -15,23 +15,37 @@ import {
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import confetti from "canvas-confetti";
+import { useQuizStore } from "@/lib/store/quiz-store";
 
 interface QuizGameProps {
   quiz: QuizWithQuestions;
 }
 
 export function QuizGame({ quiz }: QuizGameProps) {
-  const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, number>>({}); // { qIndex: optionIndex }
-  const [showAI, setShowAI] = useState(false);
+  const {
+    quiz: storeQuiz,
+    setQuiz,
+    answers,
+    answerQuestion,
+    isAIPanelOpen,
+    toggleAIPanel,
+    currentQuestionIndex,
+    setCurrentQuestionIndex,
+  } = useQuizStore();
+
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Sync prop quiz to store on mount or change
+  useEffect(() => {
+    setQuiz(quiz);
+  }, [quiz, setQuiz]);
 
   const handleAnswer = (
     qIndex: number,
     optionIdx: number,
     isCorrect: boolean,
   ) => {
-    setAnswers((prev) => ({ ...prev, [qIndex]: optionIdx }));
+    answerQuestion(qIndex, optionIdx);
     if (isCorrect) {
       confetti({
         particleCount: 50,
@@ -42,11 +56,15 @@ export function QuizGame({ quiz }: QuizGameProps) {
   };
 
   const handleScroll = () => {
-    // Basic scroll logic to track current question could go here
-    // For now relying on simple index state updates when interacting
+    // Basic scroll logic could go here to update currentQuestionIndex in store
+    // based on scroll position, but for now we rely on explicit interaction
+    // or we could implement intersection observer.
+    // For AI Context, we explicitly set index when opening panel.
   };
 
-  const questions = quiz.questions || [];
+  // Use store quiz if available, otherwise fallback to prop (should be synced)
+  const activeQuiz = storeQuiz || quiz;
+  const questions = activeQuiz.questions || [];
   const progressPercent =
     (Object.keys(answers).length / questions.length) * 100;
 
@@ -54,7 +72,10 @@ export function QuizGame({ quiz }: QuizGameProps) {
     <div className="relative h-screen bg-black text-white overflow-hidden font-sans">
       {/* Top Bar Overlay */}
       <div className="absolute top-0 left-0 w-full p-4 flex justify-between items-center z-20 bg-gradient-to-b from-black/80 to-transparent">
-        <Link href={`/subjects/${quiz.subjectId}`} className="hidden md:block">
+        <Link
+          href={`/subjects/${activeQuiz.subjectId}`}
+          className="hidden md:block"
+        >
           <button className="bg-white/10 backdrop-blur-md p-2 rounded-full hover:bg-white/20 transition-colors">
             <X className="h-5 w-5" />
           </button>
@@ -64,7 +85,7 @@ export function QuizGame({ quiz }: QuizGameProps) {
 
         <div className="flex flex-col items-center mx-auto md:mx-0">
           <span className="font-bold text-sm tracking-widest uppercase text-white/90">
-            {quiz.title}
+            {activeQuiz.title}
           </span>
           <div className="flex gap-1 mt-1 h-1 overflow-hidden rounded-full bg-gray-800 w-32">
             <div
@@ -129,8 +150,8 @@ export function QuizGame({ quiz }: QuizGameProps) {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     onClick={() => {
-                      setShowAI(true);
-                      setCurrentQIndex(index);
+                      setCurrentQuestionIndex(index);
+                      toggleAIPanel(true);
                     }}
                     className="flex flex-col items-center gap-1 group"
                   >
@@ -168,10 +189,10 @@ export function QuizGame({ quiz }: QuizGameProps) {
 
       {/* AI SIDEBAR OVERLAY */}
       <AnimatePresence>
-        {showAI && questions[currentQIndex] && (
+        {isAIPanelOpen && questions[currentQuestionIndex] && (
           <AIPanel
-            question={questions[currentQIndex]}
-            onClose={() => setShowAI(false)}
+            question={questions[currentQuestionIndex]}
+            onClose={() => toggleAIPanel(false)}
           />
         )}
       </AnimatePresence>
