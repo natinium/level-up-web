@@ -14,7 +14,6 @@ import {
   BookOpen,
 } from "lucide-react";
 
-// Icon mapping (simplified for server component, passing only name/component logic might need handling if we want to render Icon here)
 const iconMap: Record<string, React.ElementType> = {
   calculator: Calculator,
   atom: Atom,
@@ -57,15 +56,15 @@ export default async function SubjectPage({
   const Icon = iconMap[subject.icon] || BookOpen;
 
   return (
-    <div className="space-y-8 pb-10">
+    <div className="p-8 h-full overflow-y-auto">
       <Link
         href="/dashboard"
-        className="inline-flex items-center text-gray-500 hover:text-gray-900 font-bold text-sm transition-colors"
+        className="mb-6 inline-flex items-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white font-bold text-sm transition-colors"
       >
         <ChevronLeft className="mr-1 h-5 w-5" /> Back to Dashboard
       </Link>
 
-      <div className="flex items-end justify-between">
+      <div className="flex items-end justify-between mb-8">
         <div className="flex items-center gap-6">
           <div
             className={`w-20 h-20 rounded-3xl flex items-center justify-center text-white shadow-lg ${subject.color}`}
@@ -73,10 +72,10 @@ export default async function SubjectPage({
             <Icon className="h-10 w-10" />
           </div>
           <div>
-            <h1 className="text-4xl font-black text-gray-900 tracking-tight">
+            <h1 className="text-4xl font-black text-gray-900 dark:text-white tracking-tight">
               {subject.name}
             </h1>
-            <p className="text-gray-500 font-medium text-lg">
+            <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">
               Grade {gradeName} • National Curriculum
             </p>
           </div>
@@ -89,7 +88,7 @@ export default async function SubjectPage({
         ))}
 
         {quizList.length === 0 && (
-          <div className="col-span-full py-20 text-center bg-white rounded-[2rem] border border-dashed border-gray-200 text-gray-400">
+          <div className="col-span-full py-20 text-center bg-white dark:bg-zinc-900/50 rounded-[2rem] border border-dashed border-gray-200 dark:border-zinc-800 text-gray-400">
             <p>No quizzes available for this subject yet.</p>
           </div>
         )}
