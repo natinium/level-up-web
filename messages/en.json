@@ -10,23 +10,30 @@
     "library": "My Library",
     "wallet": "XP Wallet",
     "statistics": "Statistics",
+    "teams": "Teams",
     "leaderboard": "Leaderboard",
     "dailyStreak": "Daily Streak",
     "streakMessage": "You're on fire! 🔥 Keep learning to maintain your streak.",
-    "logOut": "Log Out"
+    "logOut": "Log Out",
+    "profile": "Profile",
+    "settings": "Settings"
   },
   "Header": {
     "greeting": "Hello, {name} 👋",
     "subtitle": "Ready to crush the Entrance Exam?"
   },
   "Dashboard": {
+    "greeting": "Hello, {name} 👋",
+    "tagline": "Ready to crush the Entrance Exam?",
     "learningActivity": "Learning Activity",
     "thisWeek": "This Week",
     "lastWeek": "Last Week",
     "yourSubjects": "Your Subjects",
     "chooseSubject": "Choose Your Subject",
     "grade": "Grade {grade}",
-    "noSubjects": "No subjects found for this grade."
+    "noSubjects": "No subjects found for this grade.",
+    "studentsCount": "{count} students",
+    "viewSubject": "View {subjectName}"
   },
   "Stats": {
     "yourProgress": "Your Progress",
