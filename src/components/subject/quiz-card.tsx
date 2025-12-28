@@ -15,15 +15,15 @@ export function QuizCard({ quiz, index }: QuizCardProps) {
   // Determine difficulty color
   const isHard = quiz.difficulty === "Hard";
   const badgeColor = isHard
-    ? "bg-red-100 text-red-600"
-    : "bg-blue-100 text-blue-600";
+    ? "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400"
+    : "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400";
 
   // Create a pseudo-progress for demo purposes if not tracked yet
   // In a real app, we'd pass progress prop
   const progress = index === 0 ? 0 : 60;
 
   return (
-    <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 flex flex-col transition-all hover:shadow-lg hover:-translate-y-1">
+    <div className="bg-white dark:bg-zinc-900/50 rounded-[2rem] p-6 shadow-sm border border-gray-100 dark:border-zinc-800 flex flex-col transition-all hover:shadow-lg hover:-translate-y-1">
       <div className="flex justify-between items-start mb-4">
         <span
           className={cn(
@@ -33,10 +33,12 @@ export function QuizCard({ quiz, index }: QuizCardProps) {
         >
           {quiz.difficulty}
         </span>
-        <LockOpen className="h-4 w-4 text-gray-300" />
+        <LockOpen className="h-4 w-4 text-gray-300 dark:text-zinc-600" />
       </div>
 
-      <h3 className="font-bold text-xl text-gray-800 mb-2">{quiz.title}</h3>
+      <h3 className="font-bold text-xl text-gray-800 dark:text-white mb-2">
+        {quiz.title}
+      </h3>
       <p className="text-xs text-gray-400 mb-6">
         {/* Placeholder for question count since generic Quiz type might not have it strictly count, but schema has it? Schema: title, description, maxScore. Questions table has count. In list API we might want to join count. For now hardcode or use fake */}
         Est. 15 mins
@@ -44,7 +46,7 @@ export function QuizCard({ quiz, index }: QuizCardProps) {
 
       <div className="mt-auto">
         {index > 0 && (
-          <div className="w-full bg-gray-100 rounded-full h-2 mb-4">
+          <div className="w-full bg-gray-100 dark:bg-zinc-800 rounded-full h-2 mb-4">
             <div
               className="bg-green-500 h-2 rounded-full"
               style={{ width: `${progress}%` }}
@@ -56,7 +58,7 @@ export function QuizCard({ quiz, index }: QuizCardProps) {
           <Button
             className={cn(
               "w-full rounded-xl font-bold text-sm flex items-center justify-center gap-2",
-              "bg-gray-900 text-white hover:bg-primary transition-colors",
+              "bg-gray-900 text-white hover:bg-primary transition-colors dark:bg-white dark:text-black dark:hover:bg-gray-200",
             )}
           >
             {index === 0 ? "Start Quiz" : "Resume"} <Play className="h-4 w-4" />
