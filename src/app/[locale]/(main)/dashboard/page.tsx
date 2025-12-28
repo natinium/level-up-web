@@ -1,23 +1,41 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useSession } from "@/lib/auth/auth-client";
 import { HeroBanner, SubjectCard } from "@/components/dashboard";
-import { Button } from "@/components/ui/button";
 import { getGrades, getSubjects } from "@/lib/api";
 import { ActivityChart } from "@/components/dashboard/activity-chart";
-import { Filter } from "lucide-react";
+import { Search } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Grade, Subject } from "@/types/content";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
   const t = useTranslations("Dashboard");
+  const tCommon = useTranslations("Common"); // Added for common translations
   const [grades, setGrades] = useState<Grade[]>([]);
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [selectedGrade, setSelectedGrade] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLanguageChange = (newLocale: string) => {
+    const segments = pathname.split("/");
+    // Assuming path is like /[locale]/... or /...
+    // If segments[1] is a locale, replace it. Otherwise prepend.
+    if (["en", "am", "or"].includes(segments[1])) {
+      segments[1] = newLocale;
+    } else {
+      segments.splice(1, 0, newLocale);
+    }
+    router.push(segments.join("/"));
+  };
 
   useEffect(() => {
     async function initData() {
@@ -55,11 +73,45 @@ export default function DashboardPage() {
   }, [selectedGrade]);
 
   return (
-    <div className="space-y-8 pb-10">
+    <div className="p-8 space-y-8 h-full overflow-y-auto">
+      {/* Header */}
+      <header className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-extrabold text-gray-900 dark:text-white">
+            {t("greeting", { name: session?.user?.name || "Abebe" })} 👋
+          </h1>
+          <p className="text-gray-400 text-sm">{t("tagline")}</p>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="bg-white dark:bg-zinc-900 p-1.5 rounded-full flex items-center shadow-sm border border-gray-100 dark:border-zinc-800">
+            <Search className="text-gray-400 ml-3" size={18} />
+            <input
+              type="text"
+              placeholder={tCommon("searchPlaceholder")}
+              className="bg-transparent border-none outline-none text-sm px-3 py-1 w-64 placeholder:text-gray-400 dark:text-white"
+            />
+          </div>
+
+          <select
+            value={locale}
+            onChange={(e) => handleLanguageChange(e.target.value)}
+            className="h-10 rounded-xl border-none bg-white dark:bg-zinc-900 text-xs font-bold text-gray-600 focus:ring-0 dark:text-gray-300 cursor-pointer shadow-sm border border-gray-100 dark:border-zinc-800 px-2"
+          >
+            <option value="en">🇺🇸 EN</option>
+            <option value="am">🇪🇹 AM</option>
+            <option value="or">🇪🇹 OR</option>
+          </select>
+
+          <div className="bg-white dark:bg-zinc-900 rounded-full shadow-sm border border-gray-100 dark:border-zinc-800">
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+
       <HeroBanner />
 
-      {/* Activity Chart Section */}
-      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-gray-100 dark:bg-zinc-900/50 dark:ring-zinc-800">
+      {/* Activity Chart Section (Kept per request) */}
+      <div className="rounded-[2.5rem] bg-white dark:bg-zinc-900/50 p-6 shadow-sm ring-1 ring-gray-100 dark:ring-zinc-800">
         <div className="flex items-center justify-between mb-6">
           <h3 className="font-bold text-gray-900 dark:text-white">
             {t("learningActivity")}
@@ -74,36 +126,33 @@ export default function DashboardPage() {
 
       <div className="space-y-6">
         {/* Grade Selector */}
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center mb-6">
           <h3 className="text-xl font-bold text-gray-800 dark:text-white">
             {t("chooseSubject")}
           </h3>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-            <div className="flex items-center gap-2 p-1 bg-white dark:bg-zinc-900 rounded-xl border border-gray-100 dark:border-zinc-800 shadow-sm">
-              {grades.map((grade) => (
-                <button
-                  key={grade.id}
-                  onClick={() => setSelectedGrade(grade.id)}
-                  className={`
-                                  relative px-4 py-2 rounded-lg text-sm font-bold transition-all
-                                  ${
-                                    selectedGrade === grade.id
-                                      ? "bg-gray-900 text-white shadow-md dark:bg-white dark:text-black"
-                                      : "text-gray-500 hover:bg-gray-50 dark:hover:bg-zinc-800 hover:text-gray-900 dark:hover:text-white"
-                                  }
-                              `}
-                >
-                  {t("grade", { grade: grade.name })}
-                </button>
-              ))}
-            </div>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-xl border-dashed border-gray-300 text-gray-400 hover:text-primary hover:border-primary dark:border-zinc-700"
-            >
-              <Filter className="h-4 w-4" />
-            </Button>
+          <div className="flex bg-white dark:bg-zinc-900 p-1 rounded-xl border border-gray-200 dark:border-zinc-800 shadow-sm">
+            {grades.length > 0
+              ? grades.map((grade) => (
+                  <button
+                    key={grade.id}
+                    onClick={() => setSelectedGrade(grade.id)}
+                    className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                      selectedGrade === grade.id
+                        ? "bg-gray-900 text-white shadow-md dark:bg-white dark:text-black"
+                        : "text-gray-500 hover:bg-gray-50 dark:hover:bg-zinc-800"
+                    }`}
+                  >
+                    G-{t("grade", { grade: grade.name })}
+                  </button>
+                ))
+              : ["9", "10", "11", "12"].map((g) => (
+                  <button
+                    key={g}
+                    className="px-4 py-1.5 rounded-lg text-xs font-bold text-gray-500 hover:bg-gray-50 dark:hover:bg-zinc-800"
+                  >
+                    G-{t("grade", { grade: g })}
+                  </button>
+                ))}
           </div>
         </div>
 
