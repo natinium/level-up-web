@@ -9,13 +9,9 @@ const withNextIntl = createNextIntlPlugin();
  * This includes settings for various Next.js features and integrations.
  */
 const nextConfig: NextConfig = {
-  /* Add your Next.js configuration options here.
-     For example:
-     reactStrictMode: true,
-     images: {
-       domains: ['example.com'],
-     },
-  */
+  // Disable strict mode to prevent double-firing of useEffect hooks
+  // which can cause duplicate API calls during development
+  reactStrictMode: false,
   sassOptions: {
     includePaths: ["./src/styles"],
   },
