@@ -1,54 +1,35 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export function HeroBanner() {
   const t = useTranslations("Hero");
 
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 p-8 md:p-12 shadow-xl shadow-blue-900/10">
+    <div className="relative w-full py-8 rounded-[2.5rem] overflow-hidden shadow-lg shadow-primary/20 bg-gradient-to-r from-blue-600 to-indigo-600">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="max-w-2xl text-center md:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/30 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm mb-6 border border-blue-400/30">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-            </span>
-            New Feature: AI Tutor Available!
-          </div>
-          <h1 className="mb-4 text-3xl font-extrabold text-white md:text-5xl tracking-tight leading-tight">
-            {t.rich("title", {
-              br: () => <br />,
-              span: (chunks) => (
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-yellow-300">
-                  {chunks}
-                </span>
-              ),
-            })}
-          </h1>
-          <p className="mb-8 text-lg text-blue-100 max-w-xl">
-            {t("description")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <Button className="bg-white text-primary hover:bg-white/90 font-bold px-8 py-6 rounded-2xl shadow-lg shadow-blue-900/20 text-lg transition-transform hover:scale-105 active:scale-95">
-              {t("startSprint")}
-            </Button>
-            <Button
-              variant="outline"
-              className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 px-8 py-6 rounded-2xl font-bold text-lg backdrop-blur-sm"
-            >
-              View Roadmap
-            </Button>
-          </div>
-        </div>
-        <div className="relative hidden md:block">
-          {/* Placeholder for mascot/illustration */}
-          <div className="w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl absolute -top-10 -right-10"></div>
-          <div className="relative z-10 text-9xl">🚀</div>
-        </div>
+
+      <div className="relative z-10 px-10 w-2/3 text-white flex flex-col justify-center h-full">
+        <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block self-start">
+          {t("termFinals")}
+        </span>
+        <h2 className="text-4xl font-black mb-2 leading-tight">{t("title")}</h2>
+        <p className="text-blue-100 mb-6 text-sm max-w-md">
+          {t("description")}
+        </p>
+        <button className="bg-white text-primary dark:bg-white dark:text-indigo-600 dark:hover:bg-gray-200 px-6 py-3 rounded-xl font-bold text-sm hover:bg-gray-50 shadow-lg transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer self-start">
+          {t("startSprint")} <ArrowRight size={16} />
+        </button>
+      </div>
+
+      {/* 3D Illustration Placeholder */}
+      <div className="absolute right-10 bottom-0 transform translate-y-4 hidden md:block">
+        <img
+          src="https://api.dicebear.com/7.x/bottts/svg?seed=Felix&backgroundColor=transparent"
+          className="w-56 h-56 drop-shadow-2xl"
+          alt="Mascot"
+        />
       </div>
     </div>
   );
