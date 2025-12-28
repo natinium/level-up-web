@@ -9,10 +9,10 @@ export default function AuthLayout({
       <div className="relative z-10 w-full max-w-md">
         <div className="mb-8 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-3xl font-bold text-primary shadow-lg shadow-indigo-900/20">
-            E
+            L
           </div>
           <h1 className="mt-4 text-3xl font-extrabold text-white tracking-tight">
-            EthioScholar
+            LevelUP
           </h1>
           <p className="mt-2 text-blue-100">
             Level up your entrance exam prep.
