@@ -965,9 +965,51 @@ These tutorials and guides help you build your own tools that integrate with spe
 The AI SDK Core [Tool Calling](/docs/ai-sdk-core/tools-and-tool-calling)
 and [Agents](/docs/foundations/agents) documentation has more information about tools and tool calling.
 
-# Next.js App Router Quickstart
+# LevelUp AI — Implementation Summary
 
-The AI SDK is a powerful Typescript library designed to help developers build AI-powered applications.
+Client (`src/components/quiz/ai-panel.tsx`):
+
+```tsx
+const { messages, sendMessage } = useChat({
+  id: `ai-explain-${question.id}-${aiChatKey}`,
+  transport: new DefaultChatTransport({
+    api: "/api/ai/explain",
+    body: {
+      questionContext: question,
+      locale, // user's current locale from next-intl
+    },
+  }),
+});
+```
+
+Server (`src/app/api/ai/explain/route.ts`):
+
+```ts
+export async function POST(req: Request) {
+  const { messages, questionContext, locale } = await req.json();
+
+  const systemPrompt = `You are a helpful tutor...\nIMPORTANT: Always respond in the user's language. The user is currently using ${locale || "English"} language.`;
+
+  const result = streamText({
+    model: google("gemini-2.5-flash"),
+    system: systemPrompt,
+    messages: await convertToModelMessages(messages),
+    maxRetries: 0,
+  });
+
+  return result.toUIMessageStreamResponse();
+}
+```
+
+Environment:
+
+- `AI_GATEWAY_API_KEY` or provider-specific key
+- `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`
+
+Notes:
+
+- The locale comes from `next-intl` via `useLocale()` in the client.
+- The server enforces language via the system prompt.
 
 In this quickstart tutorial, you'll build a simple agent with a streaming chat user interface. Along the way, you'll learn key concepts and techniques that are fundamental to using the AI SDK in your own projects.
 

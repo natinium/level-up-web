@@ -1,39 +1,43 @@
-# Orion Next.js Starter
+# LevelUp — Entrance Exam Prep Platform
 
-An enterprise-grade Next.js 16 starter template with modern development tooling and best practices pre-configured.
+LevelUp is a localized, gamified exam preparation platform for Ethiopian students. It provides subject content by grade, a mobile-friendly quiz feed, XP and streak-based motivation, and AI-powered explanations that answer in the user's selected language (English, Amharic, or Oromo).
 
-## About This Starter: `orion-next-starter` (Base Template)
+## About LevelUp
 
-This project serves as the minimal, unopinionated foundation for the Orion Next.js template family. It provides a complete set of professional development tools, a scalable project structure, and the initial setup for UI components. It intentionally omits specific choices for state management, data fetching, and authentication, allowing developers to integrate their preferred solutions or build upon this foundation with more specialized Orion templates (e.g., `orion-next-private`, `orion-next-saas`).
+This application evolves from a Next.js boilerplate into a focused learning platform. It keeps the professional tooling and structure but adds:
+
+- A clear content schema (grades → subjects → quizzes → questions)
+- Locale-aware UI and AI explanations
+- Secure authentication with Better Auth
+- PostgreSQL + Drizzle ORM for durable data
 
 ## Features
 
-The `orion-next-starter` comes with the following core features and tooling:
+- **Personalized dashboard** with subjects filtered by grade
+- **Quiz feed** optimized for mobile with animated UI
+- **Gamification**: XP wallet, daily streaks, leaderboard
+- **AI explanations** that respond in the user's locale
+- **Localization** with `next-intl` for `en`, `am`, `or`
+- **Authentication** with Better Auth (Drizzle adapter)
+- **PostgreSQL + Drizzle ORM** for structured content data
+- **Robust tooling**: ESLint, Prettier, Husky, Storybook, Vitest, Playwright, MSW
 
-- **Next.js 16** - Latest Next.js framework with App Router
-- **Tailwind CSS v4** - Utility-first CSS framework
-- **TypeScript** - Static type checking
-- **next-intl** - Internationalization for Next.js
-- **Shadcn UI** - Initialized and ready for adding accessible UI components
-- **Framer Motion** - Production-ready animations (available as `motion`)
-- **Next Themes** - Dark mode support
-- **ESLint & Prettier** - Code linting and formatting for consistent style
-- **Husky & Lint Staged** - Automate quality checks on staged files before commit
-- **Commitlint** - Enforce conventional commit message format
-- **GitHub Actions** - CI/CD workflows for automated testing and deployment
-- **Vitest & Playwright** - Comprehensive testing framework for unit, component, and end-to-end tests
-- **Storybook** - Configured for developing and documenting UI components in isolation
-- **MSW (Mock Service Worker)** - Set up for API mocking during development and testing
-- **Yarn v4** - Modern package management with Zero-Installs
-- **Stylelint** - Style linting for CSS/SCSS files
+## Tech Stack
+
+- Next.js 16 (App Router), React 19, TypeScript
+- Tailwind CSS v4, Shadcn UI, Framer Motion (`motion`), Next Themes
+- Drizzle ORM (`src/db`), PostgreSQL (`drizzle/` migrations)
+- Vercel AI SDK (`ai`, `@ai-sdk/google`) for AI explanations
+- next-intl for i18n (`src/app/[locale]`, `messages/*.json`)
+- Better Auth with Drizzle adapter
 
 ## UI Components with Shadcn UI
 
-This starter project is configured with Shadcn UI components. Here's how to work with UI components in this project:
+Shadcn UI components are installed and used across the app. Build custom components by composing primitives from `/src/components/ui`.
 
 ### Installing New Components
 
-To add new shadcn UI components, use the following command:
+To add new Shadcn UI components, run:
 
 ```bash
 yarn dlx shadcn@latest add component1 component2 etc
@@ -47,10 +51,10 @@ yarn dlx shadcn@latest add button card dialog
 
 ### Component Organization
 
-The project follows a specific organization pattern for components:
+Component folders:
 
-- `/src/components/ui` - Contains all shadcn UI components and their dependencies (should not be modified)
-- `/src/components/custom` - Contains custom components built using shadcn primitives
+- `/src/components/ui` — installed Shadcn components (do not modify)
+- `/src/components/custom` — custom components built from Shadcn primitives
 
 All custom components in the `/src/components/custom` folder should follow the component folder structure:
 
@@ -69,13 +73,7 @@ Each component should have its own folder with an index.ts file that exports the
 
 ### Component Customization Guidelines
 
-**Important**: Never modify or customize components in the `/src/components/ui` folder. These are installed shadcn UI components that should remain pristine and unmodified to ensure future updates work correctly.
-
-Instead:
-
-1. Use the shadcn UI components from `/src/components/ui` in your custom components
-2. Create custom components in the `/src/components/custom` folder
-3. Build your custom components by composing and extending the shadcn components
+Do not modify components in `/src/components/ui`. Create custom components in `/src/components/custom` by composing Shadcn primitives.
 
 ### Component Development Standards
 
@@ -159,28 +157,32 @@ See the `AnimatedRocket` component in `/src/components/custom/animated-rocket.ts
 ## Project Structure
 
 ```
-/orion-next-starter
+/level-up-web
 ├── .github/              # GitHub Actions workflows
 ├── .husky/               # Pre-commit hooks
 ├── .storybook/           # Storybook configuration
 ├── public/               # Static assets
+├── drizzle/              # Drizzle migrations and snapshots
 ├── src/
-│   ├── app/              # Next.js App Router (root layout and page)
-│   ├── components/         # UI components (custom and shadcn)
-│   ├── lib/                # Shared utilities
-│   ├── providers/          # React context providers (e.g., ThemeProvider)
-│   └── styles/             # Global styles
-├── tests-e2e/            # End-to-end tests (Playwright)
+│   ├── app/              # App Router (locale-aware routes under [locale])
+│   │   ├── api/          # REST endpoints (grades, subjects, quizzes, ai)
+│   │   └── (main)/dashboard  # Dashboard (client) and pages
+│   ├── components/       # UI (custom + Shadcn)
+│   ├── db/               # Drizzle schemas and index
+│   ├── lib/              # Utilities and stores (e.g., Zustand)
+│   └── providers/        # Theme and other providers
+├── messages/             # i18n message catalogs (en, am, or)
 ├── msw/                  # Mock Service Worker setup
+├── tests-e2e/            # Playwright tests
 ```
 
-## Internationalization (i18n) with `next-intl`
+## Internationalization (i18n)
 
-This starter is configured with `next-intl` for internationalization. It supports both Server and Client Components, allowing you to build a fully localized application.
+Localization is handled by `next-intl` with locale-based routing under `src/app/[locale]`. Messages are stored per locale and loaded into Server and Client Components.
 
 ### Message Storage
 
-Translation messages are stored in JSON files under the `messages/` directory. Each file corresponds to a locale (e.g., `en.json`, `fr.json`).
+Translation messages live in `messages/en.json`, `messages/am.json`, and `messages/or.json`.
 
 ```json
 // messages/en.json
@@ -192,9 +194,9 @@ Translation messages are stored in JSON files under the `messages/` directory. E
 }
 ```
 
-### Usage in Server Components
+### Usage in Components
 
-In Server Components, use the `getTranslations` function to access translations. This is the recommended approach for pages and layouts.
+Use `getTranslations` in Server Components and `useTranslations`/`useLocale` in Client Components.
 
 ```tsx
 // src/app/page.tsx
@@ -318,10 +320,14 @@ yarn dev
 
 ## Scripts
 
-- `yarn dev` - Start development server
-- `yarn build` - Build for production
-- `yarn start` - Start production server
-- `yarn lint` - Run ESLint
+- `yarn dev` — Start development server
+- `yarn build` — Build for production
+- `yarn start` — Start production server
+- `yarn lint` — Run ESLint
+- `yarn typecheck` — TypeScript type checking
+- `yarn test`, `yarn test:unit`, `yarn test:e2e` — Tests
+- `yarn storybook` — Storybook
+- `yarn db:studio` — Drizzle Studio
 
 ## Contributing
 
@@ -347,25 +353,9 @@ git commit -m "refactor: update component structure with breaking changes
 BREAKING CHANGE: This changes the component API"
 ```
 
-## MSW (Mock Service Worker) Usage
+## MSW (Mock Service Worker)
 
-Mock Service Worker (MSW) is integrated into this project for API mocking during development and testing.
-
-### Directory Structure
-
-```
-msw/
-├── browser.ts            # Browser-specific MSW setup
-├── server.ts             # Node.js-specific MSW setup
-├── index.ts              # Main export file
-├── db/                   # Mock data factories
-│   ├── index.ts
-│   └── user.ts           # Example user data factory
-└── handlers/             # Request handlers
-    ├── index.ts
-    ├── user.ts           # User API handlers
-    └── auth.ts           # Authentication API handlers
-```
+MSW is integrated for local API mocking in development and testing. See `msw/` for handlers and setup.
 
 ### Adding New Mocks
 

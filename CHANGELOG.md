@@ -60,3 +60,19 @@
 - **testing:** remove unused definitions from vitest config and clean it ([fc92618](https://github.com/orion-stack/orion-next-starter/commit/fc926184408d8991e0a36f48c4006e891536eda5))
 - **ui:** add shadcn/ui component library with configuration ([849b16d](https://github.com/orion-stack/orion-next-starter/commit/849b16d7af1206b09d5d8a90dcc46d07555b9f8e))
 - **ui:** enhance homepage with animations and updated content ([f2d113a](https://github.com/orion-stack/orion-next-starter/commit/f2d113a7fb5b7c287fd79dda1c80d47154287bfc))
+
+## [Unreleased]
+
+### Features
+
+- AI pane responds in user's selected language via locale-aware prompt (`src/app/api/ai/explain/route.ts:14`) and client transport (`src/components/quiz/ai-panel.tsx:81`)
+- Readme updated to LevelUp app description and structure
+- AI docs updated with implementation summary and environment notes
+
+### Changes
+
+- Replace boilerplate references with LevelUp context across README
+
+### Known Issues
+
+- TypeScript errors in `src/db/seed.ts` unrelated to AI pane changes
