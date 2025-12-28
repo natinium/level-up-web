@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import {
@@ -11,11 +10,11 @@ import {
   Wallet,
   BarChart2,
   Users,
-  LogOut,
+  Zap,
   Flame,
+  User,
+  Settings,
 } from "lucide-react";
-import { signOut } from "@/lib/auth/auth-client";
-import { toast } from "sonner";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -23,9 +22,15 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
-  const router = useRouter();
   const t = useTranslations("Sidebar");
-  const tCommon = useTranslations("Common");
+
+  // Helper to check active state regardless of locale
+  const isActiveLink = (href: string) => {
+    if (!pathname) return false;
+    // Remove locale prefix (e.g., /en, /am, /or)
+    const cleanPath = pathname.replace(/^\/(en|am|or)/, "") || "/";
+    return cleanPath === href || cleanPath.startsWith(href + "/");
+  };
 
   const menuItems = [
     {
@@ -37,99 +42,65 @@ export function Sidebar({ className }: SidebarProps) {
     { id: "library", label: t("library"), icon: Library, href: "/library" },
     { id: "wallet", label: t("wallet"), icon: Wallet, href: "/wallet" },
     { id: "stats", label: t("statistics"), icon: BarChart2, href: "/stats" },
-    { id: "leaderboard", label: t("leaderboard"), icon: Users, href: "/teams" },
+    { id: "teams", label: t("teams"), icon: Users, href: "/teams" },
+    { id: "profile", label: t("profile"), icon: User, href: "/profile" },
+    { id: "settings", label: t("settings"), icon: Settings, href: "/settings" },
   ];
-
-  const handleSignOut = async () => {
-    try {
-      await signOut({
-        fetchOptions: {
-          onSuccess: () => {
-            toast.success("Signed out successfully");
-            router.push("/sign-in");
-          },
-        },
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   return (
     <div
       className={cn(
-        "pb-8 h-screen flex flex-col justify-between bg-white dark:bg-black border-r border-gray-100 dark:border-gray-800 w-64",
+        "hidden md:flex flex-col w-64 bg-white dark:bg-black h-screen fixed left-0 top-0 border-r border-gray-100 dark:border-zinc-800 p-6 z-20",
         className,
       )}
     >
-      <div className="space-y-4 py-4">
-        <div className="px-6 py-2 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-xl font-bold text-white shadow-lg shadow-primary/20">
-            L
-          </div>
-          <h2 className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            {tCommon("appName")}
-          </h2>
+      <div className="flex items-center gap-3 mb-10 px-2">
+        <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
+          L
         </div>
-        <div className="px-3 py-2">
-          <div className="space-y-1">
-            {menuItems.map((item) => {
-              const isActive =
-                pathname === item.href || pathname?.startsWith(item.href + "/");
-              return (
-                <Link key={item.id} href={item.href}>
-                  <Button
-                    variant="ghost"
-                    className={cn(
-                      "w-full justify-start gap-3 rounded-2xl px-4 py-4 font-bold transition-all hover:bg-gray-50 dark:hover:bg-gray-900/50 cursor-pointer",
-                      isActive &&
-                        "bg-primary text-white shadow-md shadow-primary/20 hover:bg-primary/90 hover:text-white dark:bg-primary dark:text-white",
-                    )}
-                  >
-                    <item.icon
-                      className={cn(
-                        "h-5 w-5",
-                        isActive ? "text-white" : "text-gray-400",
-                      )}
-                    />
-                    {item.label}
-                  </Button>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        <span className="font-bold text-xl tracking-tight text-gray-800 dark:text-white">
+          LevelUP
+        </span>
       </div>
 
-      <div className="px-3 py-4 space-y-4">
-        {/* Daily Streak Widget */}
-        <div className="mx-3 rounded-3xl bg-orange-50 dark:bg-orange-950/20 p-4 border border-orange-100 dark:border-orange-900/40">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-orange-100 rounded-full text-orange-500">
-              <Flame className="h-5 w-5 fill-orange-500" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-orange-400 uppercase tracking-wider">
-                {t("dailyStreak")}
-              </p>
-              <p className="text-lg font-black text-gray-900 dark:text-white">
-                12 Days
-              </p>
-            </div>
-          </div>
-          <p className="text-xs text-gray-500 leading-relaxed">
-            {t("streakMessage")}
-          </p>
-        </div>
+      <div className="space-y-2 flex-1">
+        {menuItems.map((item) => {
+          const isActive = isActiveLink(item.href);
+          return (
+            <Link key={item.id} href={item.href} className="block w-full">
+              <button
+                className={cn(
+                  "flex items-center gap-4 w-full px-4 py-3 rounded-2xl transition-all cursor-pointer",
+                  isActive
+                    ? "bg-primary dark:bg-violet-600 text-white shadow-lg shadow-primary/30"
+                    : "text-gray-400 hover:bg-gray-50 hover:text-gray-600 dark:hover:bg-zinc-800 dark:text-gray-500",
+                )}
+              >
+                <item.icon size={22} />
+                <span className="font-medium text-sm">{item.label}</span>
+              </button>
+            </Link>
+          );
+        })}
+      </div>
 
-        <Button
-          variant="ghost"
-          className="w-full justify-start gap-3 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-2xl px-6 py-6"
-          onClick={handleSignOut}
-        >
-          <LogOut className="h-5 w-5" />
-          {t("logOut")}
-        </Button>
+      <div className="mt-auto">
+        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 p-4 rounded-3xl border border-blue-100 dark:border-blue-900/30 relative overflow-hidden group cursor-pointer">
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs mb-1">
+              <Zap size={14} /> {t("dailyStreak")}
+            </div>
+            <h4 className="font-bold text-gray-800 dark:text-white">
+              7 Days Fire!
+            </h4>
+            <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-1">
+              {t("streakMessage")}
+            </p>
+          </div>
+          <div className="absolute -right-4 -bottom-4 text-blue-200 dark:text-blue-800 opacity-50 group-hover:scale-110 transition-transform">
+            <Flame size={80} />
+          </div>
+        </div>
       </div>
     </div>
   );
