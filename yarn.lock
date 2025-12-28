@@ -55,6 +55,67 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ai-sdk/gateway@npm:3.0.2":
+  version: 3.0.2
+  resolution: "@ai-sdk/gateway@npm:3.0.2"
+  dependencies:
+    "@ai-sdk/provider": "npm:3.0.0"
+    "@ai-sdk/provider-utils": "npm:4.0.1"
+    "@vercel/oidc": "npm:3.0.5"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/bb96dc47d0dae7bfa2854afb4690b6b447866916a80235615b20ab64a10abfe3d45b20178d4de761747232872680d21a74e8081b7a57834c7f5da24056fb8d75
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/google@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@ai-sdk/google@npm:3.0.1"
+  dependencies:
+    "@ai-sdk/provider": "npm:3.0.0"
+    "@ai-sdk/provider-utils": "npm:4.0.1"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/94b6cc10796e82e85048e7acddfdc854ee913b07396f5bafbe277698addc3494df9dc3958875e84be735081e4fee38196d7218731437dc21582a0c331b861ed5
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/provider-utils@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@ai-sdk/provider-utils@npm:4.0.1"
+  dependencies:
+    "@ai-sdk/provider": "npm:3.0.0"
+    "@standard-schema/spec": "npm:^1.1.0"
+    eventsource-parser: "npm:^3.0.6"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/f874702d8e8dcf07e1aa69087a0713528edaed6a45468758eb788dbceaef374868e5e880728e49bb15a78f6efc0893bb22b0ca0e9f73f38b9b89bcfb6084c29a
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/provider@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@ai-sdk/provider@npm:3.0.0"
+  dependencies:
+    json-schema: "npm:^0.4.0"
+  checksum: 10c0/520664b2bceb019fa398e8406d03070122d13a32efb491aa83cd156800a3eedf224985da984bccf97c9ad64e252870f92400d615858a4e2a57a442194c054031
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/react@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@ai-sdk/react@npm:3.0.3"
+  dependencies:
+    "@ai-sdk/provider-utils": "npm:4.0.1"
+    ai: "npm:6.0.3"
+    swr: "npm:^2.2.5"
+    throttleit: "npm:2.1.0"
+  peerDependencies:
+    react: ^18 || ~19.0.1 || ~19.1.2 || ^19.2.1
+  checksum: 10c0/55b3de500c09994185993ff4d3b4e7860ba4470cff88baffa8f0baaf9ab056572794ec9e2b36fecca1780cf17ded4e167760845e1a80b28ed5c1aeba37047755
+  languageName: node
+  linkType: hard
+
 "@alloc/quick-lru@npm:^5.2.0":
   version: 5.2.0
   resolution: "@alloc/quick-lru@npm:5.2.0"
@@ -2491,6 +2552,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@openrouter/ai-sdk-provider@npm:^1.5.4":
+  version: 1.5.4
+  resolution: "@openrouter/ai-sdk-provider@npm:1.5.4"
+  dependencies:
+    "@openrouter/sdk": "npm:^0.1.27"
+  peerDependencies:
+    ai: ^5.0.0
+    zod: ^3.24.1 || ^v4
+  checksum: 10c0/6360a779a3b13de5df0fca9ff3dda4b18cce2652c6c0db26a3f1c1f558f5bb3f75b45d6553c14d5eed4ab1fac7fe4a4bd577195ff6652dbf5a5a14378460bbd2
+  languageName: node
+  linkType: hard
+
+"@openrouter/sdk@npm:^0.1.27":
+  version: 0.1.27
+  resolution: "@openrouter/sdk@npm:0.1.27"
+  dependencies:
+    zod: "npm:^3.25.0 || ^4.0.0"
+  checksum: 10c0/c63972851b4544a6585babacb2909b8af529444c6319e0a98b8e219f75295a25d433ba1978f24c0252fbb41ac2471bf209c2728649bf0c42b7a722c3868e267e
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/api@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@opentelemetry/api@npm:1.9.0"
+  checksum: 10c0/9aae2fe6e8a3a3eeb6c1fdef78e1939cf05a0f37f8a4fae4d6bf2e09eb1e06f966ece85805626e01ba5fab48072b94f19b835449e58b6d26720ee19a58298add
+  languageName: node
+  linkType: hard
+
 "@parcel/watcher-android-arm64@npm:2.5.1":
   version: 2.5.1
   resolution: "@parcel/watcher-android-arm64@npm:2.5.1"
@@ -3818,7 +3907,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@standard-schema/spec@npm:^1.0.0":
+"@standard-schema/spec@npm:^1.0.0, @standard-schema/spec@npm:^1.1.0":
   version: 1.1.0
   resolution: "@standard-schema/spec@npm:1.1.0"
   checksum: 10c0/d90f55acde4b2deb983529c87e8025fa693de1a5e8b49ecc6eb84d1fd96328add0e03d7d551442156c7432fd78165b2c26ff561b970a9a881f046abb78d6a526
@@ -5087,6 +5176,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/oidc@npm:3.0.5":
+  version: 3.0.5
+  resolution: "@vercel/oidc@npm:3.0.5"
+  checksum: 10c0/a63f0ab226f9070f974334014bd2676611a2d13473c10b867e3d9db8a2cc83637ae7922db26b184dd97b5945e144fc211c8f899642d205517e5b4e0e34f05b0e
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react@npm:^5.1.0":
   version: 5.1.2
   resolution: "@vitejs/plugin-react@npm:5.1.2"
@@ -5410,6 +5506,20 @@ __metadata:
     clean-stack: "npm:^5.2.0"
     indent-string: "npm:^5.0.0"
   checksum: 10c0/a5de7138571f514bad76290736f49a0db8809247082f2519037e0c37d03fc8d91d733e079d6b1674feda28a757b1932421ad205b8c0f8794a0c0e5bf1be2315e
+  languageName: node
+  linkType: hard
+
+"ai@npm:6.0.3, ai@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "ai@npm:6.0.3"
+  dependencies:
+    "@ai-sdk/gateway": "npm:3.0.2"
+    "@ai-sdk/provider": "npm:3.0.0"
+    "@ai-sdk/provider-utils": "npm:4.0.1"
+    "@opentelemetry/api": "npm:1.9.0"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/b81789fe05d8da6cf9052c72d532c54a55e169bbfaca180055d12133c390164021448460ce5642025f7dfb31e943b81cc2e91973d24e5c7e37fd70f99ce9580f
   languageName: node
   linkType: hard
 
@@ -8157,6 +8267,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eventsource-parser@npm:^3.0.6":
+  version: 3.0.6
+  resolution: "eventsource-parser@npm:3.0.6"
+  checksum: 10c0/70b8ccec7dac767ef2eca43f355e0979e70415701691382a042a2df8d6a68da6c2fca35363669821f3da876d29c02abe9b232964637c1b6635c940df05ada78a
+  languageName: node
+  linkType: hard
+
 "execa@npm:^5.0.0":
   version: 5.1.1
   resolution: "execa@npm:5.1.1"
@@ -10025,6 +10142,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-schema@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "json-schema@npm:0.4.0"
+  checksum: 10c0/d4a637ec1d83544857c1c163232f3da46912e971d5bf054ba44fdb88f07d8d359a462b4aec46f2745efbc57053365608d88bc1d7b1729f7b4fc3369765639ed3
+  languageName: node
+  linkType: hard
+
 "json-stable-stringify-without-jsonify@npm:^1.0.1":
   version: 1.0.1
   resolution: "json-stable-stringify-without-jsonify@npm:1.0.1"
@@ -11795,10 +11919,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "orion-next-starter@workspace:."
   dependencies:
+    "@ai-sdk/google": "npm:^3.0.1"
+    "@ai-sdk/react": "npm:^3.0.3"
     "@chromatic-com/storybook": "npm:^4.1.2"
     "@commitlint/cli": "npm:^20.1.0"
     "@commitlint/config-conventional": "npm:^20.0.0"
     "@faker-js/faker": "npm:^10.1.0"
+    "@openrouter/ai-sdk-provider": "npm:^1.5.4"
     "@playwright/test": "npm:^1.56.1"
     "@radix-ui/react-avatar": "npm:^1.1.11"
     "@radix-ui/react-dropdown-menu": "npm:^2.1.16"
@@ -11828,6 +11955,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^5.1.0"
     "@vitest/browser-playwright": "npm:4.0.4"
     "@vitest/coverage-v8": "npm:4.0.4"
+    ai: "npm:^6.0.3"
     autoprefixer: "npm:^10.4.22"
     better-auth: "npm:^1.4.9"
     canvas-confetti: "npm:^1.9.4"
@@ -11873,6 +12001,7 @@ __metadata:
     vite-tsconfig-paths: "npm:^5.1.4"
     vitest: "npm:^4.0.4"
     wait-on: "npm:^9.0.1"
+    zod: "npm:^4.2.1"
     zustand: "npm:^5.0.9"
   languageName: unknown
   linkType: soft
@@ -14523,6 +14652,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"swr@npm:^2.2.5":
+  version: 2.3.8
+  resolution: "swr@npm:2.3.8"
+  dependencies:
+    dequal: "npm:^2.0.3"
+    use-sync-external-store: "npm:^1.6.0"
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/ee879100fc14a9d3a9f453842cb838027f3eba728e1b33be4998eea2f612d4822a5f70815c64cceb554ba36d9120fe3d7fed63597642823f204752750208fd8e
+  languageName: node
+  linkType: hard
+
 "symbol-tree@npm:^3.2.4":
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4"
@@ -14648,6 +14789,13 @@ __metadata:
   dependencies:
     any-promise: "npm:^1.0.0"
   checksum: 10c0/f375aeb2b05c100a456a30bc3ed07ef03a39cbdefe02e0403fb714b8c7e57eeaad1a2f5c4ecfb9ce554ce3db9c2b024eba144843cd9e344566d9fcee73b04767
+  languageName: node
+  linkType: hard
+
+"throttleit@npm:2.1.0":
+  version: 2.1.0
+  resolution: "throttleit@npm:2.1.0"
+  checksum: 10c0/1696ae849522cea6ba4f4f3beac1f6655d335e51b42d99215e196a718adced0069e48deaaf77f7e89f526ab31de5b5c91016027da182438e6f9280be2f3d5265
   languageName: node
   linkType: hard
 
@@ -15336,7 +15484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.2.2, use-sync-external-store@npm:^1.4.0, use-sync-external-store@npm:^1.5.0":
+"use-sync-external-store@npm:^1.2.2, use-sync-external-store@npm:^1.4.0, use-sync-external-store@npm:^1.5.0, use-sync-external-store@npm:^1.6.0":
   version: 1.6.0
   resolution: "use-sync-external-store@npm:1.6.0"
   peerDependencies:
@@ -15999,7 +16147,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.25.0 || ^4.0.0, zod@npm:^4.1.12":
+"zod@npm:^3.25.0 || ^4.0.0, zod@npm:^4.1.12, zod@npm:^4.2.1":
   version: 4.2.1
   resolution: "zod@npm:4.2.1"
   checksum: 10c0/ecb5219bddf76a42d092a843fb98ad4cb78f1e1077082772b03ef032ee5cbc80790a4051836b962d26fb4af854323bc784d628bd1b8d9898149eba7af21c5560
