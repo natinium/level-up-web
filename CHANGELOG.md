@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/natinium/level-up-web/compare/v1.1.0...v1.2.0) (2025-12-29)
+
+### Features
+
+- **profile:** improve mobile responsiveness and add language selection ([97a4807](https://github.com/natinium/level-up-web/commit/97a4807a244b4939324ebfe2449e6fe1836a1c63))
+
 # [1.1.0](https://github.com/natinium/level-up-web/compare/v1.0.0...v1.1.0) (2025-12-29)
 
 ### Features
