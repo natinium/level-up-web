@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/natinium/level-up-web/compare/v1.0.0...v1.1.0) (2025-12-29)
+
+### Features
+
+- **dark-mode:** update various pages for dark mode support ([6446b55](https://github.com/natinium/level-up-web/commit/6446b554707a70ca16c38a608b644c3a074b20a5))
+- **hero:** update banner to link to National Exam ([d2fa50d](https://github.com/natinium/level-up-web/commit/d2fa50d9e8fcc666639bd7062210a31b9638f272))
+- **i18n:** add National Exam translations ([c7ba9b9](https://github.com/natinium/level-up-web/commit/c7ba9b9f184c3f21a10fd9674709c04662b301c8))
+- **national-exam:** add new components and API routes ([4354d05](https://github.com/natinium/level-up-web/commit/4354d05858a1780a70560e047280d368da9a6593))
+- **quiz-feed:** add subject filtering and API integration ([582f5ab](https://github.com/natinium/level-up-web/commit/582f5ab7c41b92ea50fc1954c642c54ca8f34608))
+- **quiz:** update components for mobile compatibility ([d79d6be](https://github.com/natinium/level-up-web/commit/d79d6befc1cd7575cc7150b60541e98cc0bf81cc))
+- **sidebar:** add National Exam link and logout button ([b2435a2](https://github.com/natinium/level-up-web/commit/b2435a23a356d9711e7d73925928f2bbf479b4d0))
+
 # 1.0.0 (2025-12-28)
 
 ### Bug Fixes
