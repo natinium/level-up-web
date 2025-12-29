@@ -10,6 +10,7 @@
     "library": "ቤተ-መጽሐፍት",
     "wallet": "XP ኪስ",
     "statistics": "ስታቲስቲክስ",
+    "nationalExam": "ብሔራዊ ፈተና",
     "leaderboard": "ደረጃ ሰንጠረዥ",
     "teams": "ቡድኖች",
     "profile": "መገለጫ",
@@ -61,5 +62,58 @@
     "title": "ብሔራዊ ፈተና 2025",
     "description": "ከ15,000 በላይ ተማሪዎችን ይቀላቀሉ። የባዮሎጂ እና ሲቪክስ ማራቶን!",
     "startSprint": "ጀምር"
+  },
+  "NationalExam": {
+    "title": "ብሔራዊ ፈተና 2025",
+    "subtitle": "ለኢትዮጵያ ብሔራዊ የዩኒቨርሲቲ መግቢያ ፈተና ዝግጁ ይሁን",
+    "start": "ጀምር",
+    "countdown": {
+      "label": "ፈተና በዚህ ይጀምራል",
+      "title": "ፈተናውን ለመጀመር ዝግጁ ነዎት?",
+      "days": "ቀኖች",
+      "hours": "ሰዓቶች",
+      "minutes": "ደቂቃዎች",
+      "seconds": "ሰከንዶች"
+    },
+    "examSubjects": "የፈተና ትምህርቶች",
+    "features": {
+      "title": "ለምን ይሳተፋሉ?",
+      "realTime": "ፈጣን መልስ ለማግኘትለማግኘት",
+      "realTimeDesc": "የራስዎን መልሶች በአንድ ጊዜ ያግኙ",
+      "compete": "በአገር ደረጃ ይወዳደሩ",
+      "competeDesc": "ከ15,000+ ተማሪዎች ጋር የራስዎን ደረጃ ይመልከቱ",
+      "earn": "ሽልማቶችን ያገኙ",
+      "earnDesc": "ለስኬቶች ባጂ እና XP ያስሙት",
+      "access": "ሙሉ መዳሰሻ",
+      "accessDesc": "በማንኛውም ጊዜ ያለማቋረጥ ጥያቄዎችን ለመለማመድ"
+    },
+    "participation": {
+      "title": "ይቀላቀሉ",
+      "subtitle": "ከሺዎች ተማሪዎች ጋር ይዘጋፍ",
+      "students": "ተመዝግበዋል"
+    },
+    "actions": {
+      "startPracticing": "ይጀምሩ",
+      "viewLeaderboard": "ደረጃ ሰንጠረዥን ይመልከቱ"
+    }
+  },
+  "NationalExamTest": {
+    "loading": "ፈተና በመጫን ላይ...",
+    "questions": "ጥያቄዎች",
+    "goBack": "ተመለስ",
+    "quizNotFound": {
+      "title": "ፈተና አልተገኘም",
+      "description": "የሚፈለጉት ፈተና የለም ወይም ገና አልተፈጠረምም"
+    }
+  },
+  "QuizFeed": {
+    "dailyMix": "ዕለታዊ እርብታ",
+    "loading": "ጥያቄዎች በመጫን ላይ...",
+    "allSubjects": "ሁሉም ትምህርቶች",
+    "math": "ሂሳብ",
+    "biology": "ባዮሎጂ",
+    "civics": "ሲቪክስ",
+    "english": "እንግሊዝ",
+    "nationalExam": "ብሔራዊ ፈተና"
   }
 }

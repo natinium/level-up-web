@@ -11,6 +11,7 @@
     "wallet": "XP Wallet",
     "statistics": "Statistics",
     "teams": "Teams",
+    "nationalExam": "National Exam",
     "leaderboard": "Leaderboard",
     "dailyStreak": "Daily Streak",
     "streakMessage": "You're on fire! 🔥 Keep learning to maintain your streak.",
@@ -56,5 +57,58 @@
     "title": "National Exam Sprint 2025",
     "description": "Join 15,000 students in the ultimate Biology & Civics marathon. Unlock the 'Scholar' skin!",
     "startSprint": "Start Sprint"
+  },
+  "NationalExam": {
+    "title": "National Exam 2025",
+    "subtitle": "Prepare for the Ethiopian National University Entrance Exam",
+    "start": "Start",
+    "countdown": {
+      "label": "Exam Starts In",
+      "title": "Ready to Ace the Exam?",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
+    "examSubjects": "Exam Subjects",
+    "features": {
+      "title": "Why Participate?",
+      "realTime": "Real-time Practice",
+      "realTimeDesc": "Get instant feedback on your answers",
+      "compete": "Compete Nationally",
+      "competeDesc": "See how you rank against 15,000+ students",
+      "earn": "Earn Rewards",
+      "earnDesc": "Unlock badges and XP for achievements",
+      "access": "Full Access",
+      "accessDesc": "Practice unlimited questions anytime"
+    },
+    "participation": {
+      "title": "Join the Sprint",
+      "subtitle": "Join thousands of students preparing together",
+      "students": "students registered"
+    },
+    "actions": {
+      "startPracticing": "Start Practicing",
+      "viewLeaderboard": "View Leaderboard"
+    }
+  },
+  "NationalExamTest": {
+    "loading": "Loading quiz...",
+    "questions": "questions",
+    "goBack": "Go Back",
+    "quizNotFound": {
+      "title": "Quiz Not Found",
+      "description": "The quiz you're looking for doesn't exist or hasn't been created yet."
+    }
+  },
+  "QuizFeed": {
+    "dailyMix": "Daily Mix",
+    "loading": "Loading questions...",
+    "allSubjects": "All Subjects",
+    "math": "Math",
+    "biology": "Biology",
+    "civics": "Civics",
+    "english": "English",
+    "nationalExam": "National Exam"
   }
 }

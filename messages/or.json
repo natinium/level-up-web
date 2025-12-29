@@ -10,6 +10,7 @@
     "library": "Mana Kitaabaa",
     "wallet": "Boorsaa XP",
     "statistics": "Istaatistiksii",
+    "nationalExam": "Qormaata Biyyaalessaa",
     "leaderboard": "Sadarkaa",
     "teams": "Gareewwan",
     "profile": "Piroofayilii",
@@ -56,5 +57,58 @@
     "title": "Qormaata Biyyaalessaa 2025",
     "description": "Barattoota 15,000 ol ta'an waliin hirmaadhu. Maraatoonii Baayoloojii fi Siiviiksii!",
     "startSprint": "Jalqabi"
+  },
+  "NationalExam": {
+    "title": "Qormaata Biyyaalessaa 2025",
+    "subtitle": "Yuunivarsiitii gurraacha deebi'uu barreeffamoota qophii qabuu",
+    "start": "Jalqabi",
+    "countdown": {
+      "label": "Qormaata Jalqaba",
+      "title": "Qormaataa Haqa galmeessuu taasifaa?",
+      "days": "Guyyoota",
+      "hours": "Sa'aa",
+      "minutes": "Daqiiqaa",
+      "seconds": "Sekondii"
+    },
+    "examSubjects": "Gosa Barnootaa Qormaataa",
+    "features": {
+      "title": "Hirrattin Sirriitti Haquu?",
+      "realTime": "Sa'a Gaarii Qorannoo",
+      "realTimeDesc": "Deebii kee sa'a gahaatti gaariitti argachuu",
+      "compete": "Biyya Keessatti Jaallatuu",
+      "competeDesc": "Barattoota 15,000 ol waliin sadarkaa kee ilaali",
+      "earn": "Eebbiin Ga'uu",
+      "earnDesc": "Badhaa fi XP sirna argachuu",
+      "access": "Baay'ee Gaha",
+      "accessDesc": "Guddaa ga'iin walitti dhiyeenya qabiyyee tokko"
+    },
+    "participation": {
+      "title": "Hirmaachuun Jalqabi",
+      "subtitle": "Barattoota kumaan waliin walitti qabamee deebi'u",
+      "students": "barattoota galmeessaniiru"
+    },
+    "actions": {
+      "startPracticing": "Qorannoo Jalqabi",
+      "viewLeaderboard": "Sadarkaa Ilaali"
+    }
+  },
+  "NationalExamTest": {
+    "loading": "Qormaatafe deebi'uu jiraa...",
+    "questions": "gaaffiiwwan",
+    "goBack": "Deebi'i",
+    "quizNotFound": {
+      "title": "Qormaataa Hin Argamne",
+      "description": "Barreessamuu barbaadde qormaataan hin jirre ykn hin hiramne."
+    }
+  },
+  "QuizFeed": {
+    "dailyMix": "Qophii Guyyaa",
+    "loading": "Gaaffiiwwan deebi'uu jiraa...",
+    "allSubjects": "Gosa Barnootaa Marraa",
+    "math": "Herreega",
+    "biology": "Baayoloojii",
+    "civics": "Siiviiksii",
+    "english": "Afaan Ingilizii",
+    "nationalExam": "Qormaata Biyyaalessaa"
   }
 }
