@@ -28,7 +28,7 @@ export default async function MainLayout({
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-64 xl:mr-80 min-h-screen flex flex-col pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
+      <main className="flex-1 md:ml-64 xl:mr-80 min-h-screen flex flex-col pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0 pt-[env(safe-area-inset-top)]">
         {children}
       </main>
 

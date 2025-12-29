@@ -3,8 +3,10 @@ import { Wallet, TrendingUp, History, CreditCard } from "lucide-react";
 
 export default function WalletPage() {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold text-gray-900">XP Wallet</h1>
+    <div className="p-8 space-y-8 h-full overflow-y-auto">
+      <h1 className="text-2xl font-extrabold text-gray-900 dark:text-white">
+        XP Wallet
+      </h1>
 
       {/* Balance Card */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-[2.5rem] p-8 text-white shadow-xl shadow-indigo-500/20 relative overflow-hidden">
@@ -52,10 +54,11 @@ export default function WalletPage() {
 
       {/* Transaction History */}
       <div>
-        <h3 className="font-bold text-lg text-gray-900 mb-4 flex items-center gap-2">
-          <History className="h-5 w-5 text-gray-400" /> Recent Activity
+        <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <History className="h-5 w-5 text-gray-400 dark:text-gray-500" />{" "}
+          Recent Activity
         </h3>
-        <div className="bg-white rounded-[2rem] p-2 shadow-sm border border-gray-100 divide-y divide-gray-50">
+        <div className="bg-white dark:bg-zinc-900 rounded-[2rem] p-2 shadow-sm border border-gray-100 dark:border-zinc-800 divide-y divide-gray-50 dark:divide-zinc-800">
           {[
             {
               title: "Completed Algebra Quiz",
@@ -78,11 +81,11 @@ export default function WalletPage() {
           ].map((tx, i) => (
             <div
               key={i}
-              className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-2xl transition-colors"
+              className="flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-zinc-800/50 rounded-2xl transition-colors"
             >
               <div className="flex items-center gap-4">
                 <div
-                  className={`p-3 rounded-xl ${tx.type === "earn" ? "bg-green-50 text-green-600" : "bg-red-50 text-red-600"}`}
+                  className={`p-3 rounded-xl ${tx.type === "earn" ? "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400" : "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400"}`}
                 >
                   {tx.type === "earn" ? (
                     <TrendingUp className="h-5 w-5" />
@@ -91,12 +94,16 @@ export default function WalletPage() {
                   )}
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">{tx.title}</p>
-                  <p className="text-xs text-gray-400">{tx.date}</p>
+                  <p className="font-bold text-gray-900 dark:text-white">
+                    {tx.title}
+                  </p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500">
+                    {tx.date}
+                  </p>
                 </div>
               </div>
               <span
-                className={`font-bold ${tx.type === "earn" ? "text-green-600" : "text-gray-900"}`}
+                className={`font-bold ${tx.type === "earn" ? "text-green-600 dark:text-green-400" : "text-gray-900 dark:text-white"}`}
               >
                 {tx.amount}
               </span>

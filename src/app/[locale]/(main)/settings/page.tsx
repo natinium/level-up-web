@@ -9,11 +9,13 @@ import { useSession } from "@/lib/auth/auth-client";
 import { Bell, Globe, Moon, User, LogOut } from "lucide-react";
 import { signOut } from "@/lib/auth/auth-client";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import { toast } from "sonner";
 
 export default function SettingsPage() {
   const { data: session } = useSession();
   const router = useRouter();
+  const locale = useLocale();
 
   const handleSignOut = async () => {
     try {
@@ -21,7 +23,10 @@ export default function SettingsPage() {
         fetchOptions: {
           onSuccess: () => {
             toast.success("Signed out successfully");
-            router.push("/sign-in");
+            router.push(`/${locale}/sign-in`);
+          },
+          onError: (ctx) => {
+            toast.error(ctx.error?.message || "Sign out failed");
           },
         },
       });

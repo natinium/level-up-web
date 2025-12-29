@@ -1,14 +1,27 @@
 "use client";
 
-import { useSession } from "@/lib/auth/auth-client";
+import { useSession, signOut } from "@/lib/auth/auth-client";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { StatsWidget } from "@/components/dashboard/stats-widget";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays, MapPin, Mail, Trophy, Medal, Star } from "lucide-react";
+import {
+  CalendarDays,
+  MapPin,
+  Mail,
+  Trophy,
+  Medal,
+  Star,
+  LogOut,
+} from "lucide-react";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
+  const locale = useLocale();
+  const router = useRouter();
 
   return (
     <div className="space-y-8 p-8 max-w-5xl mx-auto h-full overflow-y-auto">
@@ -57,6 +70,25 @@ export default function ProfilePage() {
               className="rounded-xl font-bold border-gray-200 dark:border-zinc-700"
             >
               Share Profile
+            </Button>
+            <Button
+              variant="outline"
+              className="rounded-xl font-bold border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
+              onClick={async () => {
+                await signOut({
+                  fetchOptions: {
+                    onSuccess: () => {
+                      toast.success("Signed out successfully");
+                      router.push(`/${locale}/sign-in`);
+                    },
+                    onError: (ctx) => {
+                      toast.error(ctx.error?.message || "Sign out failed");
+                    },
+                  },
+                });
+              }}
+            >
+              <LogOut className="mr-2 h-4 w-4" /> Logout
             </Button>
           </div>
         </div>
