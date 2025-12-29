@@ -1,10 +1,12 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
 
 export function HeroBanner() {
   const t = useTranslations("Hero");
+  const locale = useLocale();
 
   return (
     <div className="relative w-full py-8 rounded-[2.5rem] overflow-hidden shadow-lg shadow-primary/20 bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -18,9 +20,12 @@ export function HeroBanner() {
         <p className="text-blue-100 mb-6 text-sm max-w-md">
           {t("description")}
         </p>
-        <button className="bg-white text-primary dark:bg-white dark:text-indigo-600 dark:hover:bg-gray-200 px-6 py-3 rounded-xl font-bold text-sm hover:bg-gray-50 shadow-lg transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer self-start">
+        <Link
+          href={`/${locale}/national-exam`}
+          className="bg-white text-primary dark:bg-white dark:text-indigo-600 dark:hover:bg-gray-200 px-6 py-3 rounded-xl font-bold text-sm hover:bg-gray-50 shadow-lg transition-transform hover:scale-105 flex items-center gap-2 cursor-pointer self-start"
+        >
           {t("startSprint")} <ArrowRight size={16} />
-        </button>
+        </Link>
       </div>
 
       {/* 3D Illustration Placeholder */}
