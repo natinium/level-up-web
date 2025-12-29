@@ -156,7 +156,7 @@ export function AIPanel({ question, onClose }: AIPanelProps) {
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="absolute top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-zinc-900 text-gray-900 dark:text-gray-100 z-40 p-6 shadow-2xl flex flex-col"
+        className="absolute top-0 right-0 h-full max-h-screen w-full md:w-96 bg-white dark:bg-zinc-900 text-gray-900 dark:text-gray-100 z-40 p-6 shadow-2xl flex flex-col"
       >
         <div className="flex justify-between items-center mb-6 border-b border-gray-100 dark:border-zinc-800 pb-4">
           <div className="flex items-center gap-2">

@@ -26,13 +26,13 @@ export function QuestionCard({
   const correctIndex = question.correctIndex;
 
   return (
-    <div className="h-full w-full snap-start snap-always flex flex-col justify-center items-center p-6 relative">
-      <div className="w-full max-w-md space-y-8 z-10 mt-10">
+    <div className="h-[calc(100svh-8rem)] w-full snap-start snap-always flex flex-col justify-center items-center px-4 relative">
+      <div className="w-full max-w-md space-y-6 z-10">
         <div className="space-y-4">
           <span className="text-blue-400 font-bold text-sm tracking-wide">
             QUESTION {index + 1}
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold leading-relaxed text-white">
+          <h2 className="text-2xl md:text-3xl font-bold leading-relaxed text-white break-words">
             {question.text}
           </h2>
         </div>
@@ -54,7 +54,7 @@ export function QuestionCard({
                 disabled={isAnswered}
                 onClick={() => onSelect(i)}
                 className={cn(
-                  "w-full text-left p-4 rounded-2xl border-2 transition-all font-medium text-lg flex justify-between items-center text-white",
+                  "w-full text-left p-3 md:p-4 rounded-2xl border-2 transition-all font-medium text-base md:text-lg flex justify-between items-center text-white",
                   btnClass,
                 )}
               >

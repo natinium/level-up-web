@@ -102,7 +102,7 @@ export function QuizGame({ quiz }: QuizGameProps) {
       {/* Vertical Feed Container */}
       <div
         ref={scrollRef}
-        className="h-full overflow-y-scroll snap-y snap-mandatory no-scrollbar scroll-smooth"
+        className="h-full overflow-y-scroll snap-y snap-mandatory no-scrollbar snap-proximity pt-[calc(env(safe-area-inset-top)+0.5rem)] pb-[calc(10rem+env(safe-area-inset-bottom))]"
         onScroll={handleScroll}
       >
         {questions.map((q, index) => {
