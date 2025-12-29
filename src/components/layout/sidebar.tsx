@@ -3,7 +3,10 @@
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { signOut } from "@/lib/auth/auth-client";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import {
   LayoutGrid,
   Library,
@@ -14,6 +17,8 @@ import {
   Flame,
   User,
   Settings,
+  LogOut,
+  Award,
 } from "lucide-react";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -23,6 +28,8 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
   const t = useTranslations("Sidebar");
+  const router = useRouter();
+  const locale = useLocale();
 
   // Helper to check active state regardless of locale
   const isActiveLink = (href: string) => {
@@ -40,6 +47,12 @@ export function Sidebar({ className }: SidebarProps) {
       href: "/dashboard",
     },
     { id: "library", label: t("library"), icon: Library, href: "/library" },
+    {
+      id: "national-exam",
+      label: t("nationalExam"),
+      icon: Award,
+      href: "/national-exam",
+    },
     { id: "wallet", label: t("wallet"), icon: Wallet, href: "/wallet" },
     { id: "stats", label: t("statistics"), icon: BarChart2, href: "/stats" },
     { id: "teams", label: t("teams"), icon: Users, href: "/teams" },
@@ -84,7 +97,7 @@ export function Sidebar({ className }: SidebarProps) {
         })}
       </div>
 
-      <div className="mt-auto">
+      <div className="mt-auto space-y-4">
         <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 p-4 rounded-3xl border border-blue-100 dark:border-blue-900/30 relative overflow-hidden group cursor-pointer">
           <div className="relative z-10">
             <div className="flex items-center gap-2 text-primary font-bold text-xs mb-1">
@@ -101,6 +114,26 @@ export function Sidebar({ className }: SidebarProps) {
             <Flame size={80} />
           </div>
         </div>
+
+        <button
+          onClick={async () => {
+            await signOut({
+              fetchOptions: {
+                onSuccess: () => {
+                  toast.success("Signed out successfully");
+                  router.push(`/${locale}/sign-in`);
+                },
+                onError: (ctx) => {
+                  toast.error(ctx.error?.message || "Sign out failed");
+                },
+              },
+            });
+          }}
+          className="w-full flex items-center gap-4 px-4 py-3 rounded-2xl text-gray-400 hover:bg-gray-50 hover:text-gray-600 dark:hover:bg-zinc-800 dark:text-gray-500 transition-all cursor-pointer"
+        >
+          <LogOut size={22} />
+          <span className="font-medium text-sm">Logout</span>
+        </button>
       </div>
     </div>
   );
